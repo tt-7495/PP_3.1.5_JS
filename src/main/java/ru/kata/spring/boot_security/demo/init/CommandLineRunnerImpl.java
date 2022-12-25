@@ -1,49 +1,38 @@
 package ru.kata.spring.boot_security.demo.init;
 
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
-import ru.kata.spring.boot_security.demo.repositories.RoleRepository;
-import ru.kata.spring.boot_security.demo.repositories.UserRepository;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
+import ru.kata.spring.boot_security.demo.service.RoleService;
+import ru.kata.spring.boot_security.demo.service.UserService;
 
 @Component
 public class CommandLineRunnerImpl implements CommandLineRunner {
-    private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
-    private final PasswordEncoder passwordEncoder;
+    private final UserService userService;
+    private final RoleService roleService;
 
-    public CommandLineRunnerImpl(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
-        this.passwordEncoder = passwordEncoder;
+
+    public CommandLineRunnerImpl(UserService userService, RoleService roleService) {
+        this.userService = userService;
+        this.roleService = roleService;
     }
-
 
     @Override
     public void run(String... args) throws Exception {
-        Role admin = new Role(1L, "ROLE_ADMIN");
-        Role user = new Role(2L, "ROLE_USER");
-        roleRepository.saveAll(List.of(admin, user));
-
-        List<Role> rolesOfAdmin = new ArrayList<>();
-        List<Role> rolesOfUser = new ArrayList<>();
-
-        Collections.addAll(rolesOfAdmin, admin, user);
-        Collections.addAll(rolesOfUser, user);
-
-        User adminUser = new User("Anatolii", "Khitrov",
-                "tt-7495@mail.ru", "admin", passwordEncoder.encode("admin1"), rolesOfAdmin);
-        User normalUser = new User("Alexandr", "Russkin",
-                "AlexandrRusskin@mail.ru", "user", passwordEncoder.encode("user1"), rolesOfUser);
-
-        userRepository.save(adminUser);
-        userRepository.save(normalUser);
+        Role admin = new Role("ROLE_ADMIN");
+        Role user = new Role("ROLE_USER");
+        roleService.save(user);
+        roleService.save(admin);
+        User user1 = new User("adminUser@mail.ru", "111");
+        User user2 = new User("admin@mail.ru", "111");
+        User user3 = new User("user@mail.ru", "111");
+        user1.setRole(roleService.findByName("ROLE_ADMIN"));
+        user1.setRole(roleService.findByName("ROLE_USER"));
+        user2.setRole(roleService.findByName("ROLE_ADMIN"));
+        user3.setRole(roleService.findByName("ROLE_USER"));
+        userService.saveUser(user1);
+        userService.saveUser(user2);
+        userService.saveUser(user3);
     }
 }
