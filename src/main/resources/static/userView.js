@@ -12,6 +12,9 @@ async function thisUser() {
             let user = `$(
             <tr>
                 <td>${data.id}</td>
+                <td>${data.firstName}</td>
+                <td>${data.lastName}</td>
+                <td>${data.age}</td>
                 <td>${data.username}</td>
                 <td>${roles}</td>)`;
             $('#userPanelBody').append(user);

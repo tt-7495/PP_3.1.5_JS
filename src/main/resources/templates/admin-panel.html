@@ -67,6 +67,9 @@
                                         <thead>
                                         <tr>
                                             <th>ID</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Age</th>
                                             <th>Email</th>
                                             <th>Role</th>
                                             <th>Edit</th>
@@ -88,6 +91,24 @@
                                             <div class="form justify-content-center mx-auto col-5">
                                                 <form id="formNewUser" name="formNewUser">
                                                     <p>
+                                                        <label class="container-fluid" for="newUserName"><strong>Name</strong>
+                                                            <input class="form-control" type="text" name="firstName"
+                                                                   id="newUserName"/>
+                                                        </label>
+                                                    </p>
+                                                    <p>
+                                                        <label class="container-fluid" for="newUserLastName"><strong>Last name</strong>
+                                                            <input class="form-control" type="text" name="lastName"
+                                                                   id="newUserLastName"/>
+                                                        </label>
+                                                    </p>
+                                                    <p>
+                                                        <label class="container-fluid"
+                                                               for="newUserAge"><strong>Age</strong>
+                                                            <input class="form-control" type="number" name="age"
+                                                                   id="newUserAge"/>
+                                                        </label>
+                                                    </p>
                                                         <label class="container-fluid"
                                                                for="newUserEmail"><strong>Email</strong>
                                                             <input class="form-control" type="email" name="username"
@@ -127,6 +148,9 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Age</th>
                                     <th>Email</th>
                                     <th>Role</th>
                                 </tr>
@@ -158,6 +182,22 @@
                             <p>
                                 <label for="idEditUser"><strong>ID</strong>
                                     <input class="form-control" type="number" name="id" id="idEditUser" disabled/>
+                                </label>
+                            </p>
+                            <p>
+                                <label for="firstNameEditUser"><strong>First name</strong>
+                                    <input class="form-control" type="text" name="firstName" id="firstNameEditUser" />
+                                </label>
+                            </p>
+                            <p>
+                                <label for="lastNameEditUser"><strong>Last name</strong>
+                                    <input class="form-control" type="text" name="lastName" id="lastNameEditUser" />
+                                </label>
+                            </p>
+
+                            <p>
+                                <label for="ageEditUser"><strong>Age</strong>
+                                    <input class="form-control" type="number" name="age" id="ageEditUser" />
                                 </label>
                             </p>
                             <p>
@@ -207,7 +247,21 @@
                                     <input class="form-control" type="number" name="id" id="idDeleteUser" disabled>
                                 </label>
                             </p>
-
+                            <p>
+                                <label for="firstNameDeleteUser"><strong>First name</strong>
+                                    <input class="form-control" type="text" name="firstName" id="firstNameDeleteUser" disabled>
+                                </label>
+                            </p>
+                            <p>
+                                <label for="lastNameDeleteUser"><strong>Last name</strong>
+                                    <input class="form-control" type="text" name="lastName" id="lastNameDeleteUser" disabled>
+                                </label>
+                            </p>
+                            <p>
+                                <label for="ageDeleteUser"><strong>Age</strong>
+                                    <input class="form-control" type="number" name="age" id="ageDeleteUser" disabled>
+                                </label>
+                            </p>
                             <p>
                                 <label for="emailDeleteUser"><strong>Email</strong>
                                     <input class="form-control" type="email" name="username" id="emailDeleteUser"

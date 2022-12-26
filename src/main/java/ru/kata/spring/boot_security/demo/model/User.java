@@ -22,6 +22,13 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column
+    private String firstName;
+    @Column
+    private String lastName;
+    @Column
+    private int age;
+
     @Column(name = "email", unique = true)
     private String username;
 
@@ -41,7 +48,10 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(String username, String password) {
+    public User(String firstName, String lastName, int age, String username, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
         this.username = username;
         this.password = password;
     }

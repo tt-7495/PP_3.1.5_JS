@@ -24,9 +24,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         Role user = new Role("ROLE_USER");
         roleService.save(user);
         roleService.save(admin);
-        User user1 = new User("adminUser@mail.ru", "111");
-        User user2 = new User("admin@mail.ru", "111");
-        User user3 = new User("user@mail.ru", "111");
+        User user1 = new User("Анатолий", "Хитров", 27 ,"adminUser@mail.ru", "111");
+        User user2 = new User("Александр", "Русскин", 27 ,"admin@mail.ru", "111");
+        User user3 = new User("User", "Users", 100 ,"user@mail.ru", "111");
         user1.setRole(roleService.findByName("ROLE_ADMIN"));
         user1.setRole(roleService.findByName("ROLE_USER"));
         user2.setRole(roleService.findByName("ROLE_ADMIN"));
