@@ -15,11 +15,6 @@ import java.util.Objects;
 @ToString
 @Table(name = "roles")
 public class Role implements GrantedAuthority {
-    @Override
-    public String getAuthority() {
-        return name;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -45,5 +40,8 @@ public class Role implements GrantedAuthority {
     public int hashCode() {
         return getClass().hashCode();
     }
-
+    @Override
+    public String getAuthority() {
+        return name;
+    }
 }

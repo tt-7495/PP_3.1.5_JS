@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-@Transactional
+
 public class RoleServiceImpl implements RoleService {
 
     private final RoleRepository roleRepository;
@@ -18,7 +18,7 @@ public class RoleServiceImpl implements RoleService {
     public RoleServiceImpl(RoleRepository roleRepository) {
         this.roleRepository = roleRepository;
     }
-
+    @Transactional
     public void save(Role role) {
         roleRepository.save(role);
     }
